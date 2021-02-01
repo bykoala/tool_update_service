@@ -10,11 +10,16 @@ function index(props) {
           backgroundColor:'white',
         //   padding: '0px 100px'
       }}>
-      <div className="logo"  >
+      <div className="logo"  display='inline-block'>
         <img src={logo}></img>
+        <span style={{
+          margin:"20px",
+          "font-size":"20px",
+          "font-weight":"600"
+        }}>魔百和自动化后管平台</span>
       </div>
       <div>
-      <h1>魔百和自动化后管平台</h1>
+      
       </div>
      
     </Header>
