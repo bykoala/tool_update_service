@@ -56,7 +56,7 @@ function Release() {
             "url": fileUrl,
             "classification":0
         })
-        postRequest("http://localhost:8088/update", data)
+        postRequest("http://111.229.251.110:8088/update", data)
 
       };
 
@@ -98,7 +98,7 @@ function Release() {
         wrapperCol: { offset: 8, span: 16 },
     };
     //请求当前系统上存在的最新版本号
-    useEffect(() => { getRelease("http://localhost:8088/release") }, [])
+    useEffect(() => { getRelease("http://111.229.251.110:8088/release") }, [])
     //表单验证
     const validateMessages = {
         required: '${label} is required!',

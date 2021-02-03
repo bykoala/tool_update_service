@@ -25,7 +25,7 @@ function LoginStatusManage() {
     useEffect(() => {
         //检查登录态
         // verifyLogin();
-        let loginStatus = true;
+        let loginStatus =false;
         //设置当前登录态
         setLogin(loginStatus);
     }, []);
