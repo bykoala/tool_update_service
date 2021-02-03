@@ -1,24 +1,58 @@
 import { Card, Descriptions, Divider, version } from "antd";
 import { getRequest } from "../utils/request";
 import React from 'react';
+import { ConsoleSqlOutlined } from "@ant-design/icons";
+import download from "../assert/img/download.png";
+import { Input } from 'antd';
+import { Drawer, Button } from 'antd';
+
 class ShowUpdateComponent extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      monitorStatus: 0,
+      visible: false
+    }
   }
-  componentShouldUpdate(){
-    console.log("showupdate===========",this.props)
-  }
+  showDrawer = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  onClose = () => {
+    this.setState({
+      visible: false,
+    });
+  };
+
   render() {
+    const { TextArea } = Input;
     return (
-      <Descriptions title="更新列表" column="2">
-        <Descriptions.Item label="版本号">{this.props.version}</Descriptions.Item>
-        <Descriptions.Item label="文件大小">{this.props.fileSize}</Descriptions.Item>
-        <Descriptions.Item label="更新日期">{this.props.creatTime}</Descriptions.Item>
-        <Descriptions.Item label="MD5值">{this.props.md5}
-        </Descriptions.Item>
-        <Descriptions.Item label="下载">{this.props.fileUrl}</Descriptions.Item>
-        <Descriptions.Item label="更新内容">{this.props.content}</Descriptions.Item>
-      </Descriptions>
+      <>
+         <div>
+         {this.props.version} | {this.props.createTime} | {this.props.fileSize}MB |{this.props.md5}
+         </div>
+         <div className="site-drawer-render-in-current-wrapper">
+        <div style={{ marginTop: 16 }}>
+          <Button type="primary" onClick={this.showDrawer}>
+          版本特性
+          </Button>
+        </div>
+        <Drawer
+          placement="right"
+          closable={false}
+          onClose={this.onClose}
+          visible={false}
+          getContainer={false}
+          getContainer={Selectors}
+          style={{ position: 'absolute' }}
+        >
+          fff
+        </Drawer>
+      </div>
+        <Divider> </Divider>
+      </>
     )
   }
 }
@@ -26,46 +60,45 @@ class ShowUpdateComponent extends React.Component {
 class Updatelist extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       comps: [],
-      data:{}
-     }
-    //  this.printData=this.printData.bind(this)
+      data: {}
+    }
   }
   componentWillMount() {
     getRequest("http://localhost:8088/getUpdateHistory", this.receiveData)
   }
-  receiveData=(data)=> {
-    // this.state.data=data
+  receiveData = (data) => {
     this.setState({
       data: data
     });
 
-    const loopGetData = this.state.data.data;
-    const test = () => {
-      let compsbox = [];
-      // for(let i=0;i<Object.keys(testMap).length;i++){ }
-      for (let v in loopGetData) {
-        <ShowUpdateComponent 
-        version={loopGetData[v].Version} fileSize="tes文件大小t" 
-        creatTime="tes更新日期tt" md5="tesMD5值t" 
-        fileUrl="te下载tt" content="t更新内容tt">
-        </ShowUpdateComponent>
-        // 譬如：我现在取到version的数据：testMap[v].Version
-        compsbox = compsbox.concat([Date.now()])
-      }
-      this.setState({
-        comps: compsbox
-      });
+    const loopGetData = data;
+    let compsbox = [];
+    for (let k in loopGetData.data) {
+
+      // let createTime
+      compsbox.push(
+        <ShowUpdateComponent
+          version={loopGetData.data[k].Version}
+          fileSize={loopGetData.data[k].Size}
+          createTime={loopGetData.data[k].CreateTime}
+          md5={loopGetData.data[k].Md5}
+          fileUrl={loopGetData.data[k].Url}
+          content={loopGetData.data[k].Content} />
+      );
     }
-    test()
+    this.setState({
+      comps: compsbox
+    });
   }
- 
+
   render() {
-   
+
     const MainComponent = () => <div>
-      <ShowUpdateComponent/>
-      <Divider></Divider>
+      {/* <ShowUpdateComponent /> */}
+      {this.state.comps}
+
     </div>
     const { comps } = this.state;
     return (
@@ -75,14 +108,14 @@ class Updatelist extends React.Component {
           width: 1000,
         }}
       >
-        {comps.map(comp => {
+        {/* {comps.map(comp => {
           return <MainComponent key={comp} />
-        })}
-        {/* <button onClick={test}>加组件</button> */}
+        })} */}
+        <MainComponent key={comps} />
       </Card>
     )
   }
 
- 
+
 }
 export default Updatelist

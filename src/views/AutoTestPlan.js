@@ -1,10 +1,11 @@
 import React from 'react'
-
+import { Card, Descriptions, Divider, version } from "antd";
 function AutoTestPlan() {
     return (
-        <div>
-            <h1>功能模块待规划...敬请期待</h1>
-        </div>
+
+         <Card>
+         <h1>功能模块待规划...敬请期待</h1>
+       </Card>
     )
 }
 
