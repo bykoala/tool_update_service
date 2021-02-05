@@ -11,7 +11,7 @@ function index(props) {
         //   padding: '0px 100px'
       }}>
       <div className="logo"  display='inline-block'>
-        <img src={logo}></img>
+        <img src={logo} alt="logo"></img>
         <span style={{
           margin:"20px",
           "font-size":"20px",

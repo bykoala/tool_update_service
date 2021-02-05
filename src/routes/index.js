@@ -1,7 +1,7 @@
 import PageNotFound from "../views/PageNotFound";
 import Release from "../views/Release";
 import Updatelist from "../views/Updatelist";
-import HomePage from "../components/AdminPage";
+import HomePage from "../views/admin/AdminPage";
 import ContactMe from '../views/ContactMe';
 import AutoTestPlan from "../views/AutoTestPlan";
 

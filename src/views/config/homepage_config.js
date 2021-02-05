@@ -1,5 +1,5 @@
 
-import { LinkOutlined, PieChartOutlined, DesktopOutlined, MessageOutlined, HomeOutlined } from '@ant-design/icons';
+import { LinkOutlined, PieChartOutlined, DesktopOutlined, MessageOutlined, HomeOutlined,SendOutlined } from '@ant-design/icons';
 
 export const homepage_nav_config = [
     {
@@ -94,7 +94,7 @@ export const homepage_nav_config = [
                 历程
             </a>),
         path: "/tongzhi",
-        icon: "",
+        icon: <SendOutlined/>,
         items: false,
     },
 ];

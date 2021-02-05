@@ -1,5 +1,5 @@
 
-import { LinkOutlined, PieChartOutlined, DesktopOutlined, MessageOutlined, AppstoreOutlined,HomeOutlined } from '@ant-design/icons';
+import { LinkOutlined, PieChartOutlined, DesktopOutlined, MessageOutlined, AppstoreOutlined,HomeOutlined,SendOutlined } from '@ant-design/icons';
 
 export const admin_nav_config = [
     {
@@ -94,7 +94,7 @@ export const admin_nav_config = [
                 历程
             </a>),
         path: "",
-        icon: "",
+        icon: <SendOutlined />,
         items: false,
     },
 ];

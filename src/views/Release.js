@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import { Form, Input, Upload, message, Button, Radio, Card, } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
-import { postRequest } from "../utils/request";
+import { getRequest,postRequest } from "../utils/request";
 
 function Release() {
     const [version, setVersion] = useState(null);
@@ -12,26 +12,37 @@ function Release() {
     // useEffect(() => {  请求数据 }, [ ])    这种会在组件第一次加载的时候触发，以后不会
     // 当我们第二个参数传一个空数组[]时，相当于只在首次渲染的时候执行。
     //调用就接口，获取后台已存在的最新版本
-    const getRelease = (url) => {
-        return fetch(url, {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+    // const getRelease = (url) => {
+    //     return fetch(url, {
+    //         method: 'GET',
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //         }
+    //     }).then(res => res.json())
+    //         .then(json => {
+    //             console.log(json)
+    //             if (json.code == 10000) {
+    //                 setVersion(json.version)
+    //             } else if (json.code == 10001) {
+    //                 console.log("请求失败")
+    //             }
+    //         })
+    //         .catch(err => {
+    //             console.log('异常！！！', err);
+    //         })
+    // }
+  //请求当前系统上存在的最新版本号
+    // useEffect(() => { getRelease("http://111.229.251.110:8088/release") }, [])
+    // useEffect(() => { getRequest("/release",getLatestVersion)}, [])
+    useEffect(
+        () => {
+            function getLatestVersion(ret){
+                setVersion(ret.version)
             }
-        }).then(res => res.json())
-            .then(json => {
-                console.log(json)
-                if (json.code == 10000) {
-                    setVersion(json.version)
-                } else if (json.code == 10001) {
-                    console.log("请求失败")
-                }
-            })
-            .catch(err => {
-                console.log('异常！！！', err);
-            })
-    }
+             getRequest("/release",getLatestVersion)
+            }, [])
+
     let versionElement =  React.useRef();
     let contentElement =  React.useRef();
     let data = null
@@ -40,11 +51,6 @@ function Release() {
         // data = JSON.stringify({
         //     "version": versionElement.current.props.value,
         //     "content": contentElement.current.resizableTextArea.props.value,
-        //     "forced": 0,
-        //     "size": parseFloat(fileSize),
-        //     "md5": md5,
-        //     "url": fileUrl,
-        //     "classification":0
         // })
 
           data = JSON.stringify({
@@ -54,15 +60,15 @@ function Release() {
             "size": parseFloat(fileSize),
             "md5": md5,
             "url": fileUrl,
-            "classification":0
+            "classification":1   //图片归类：1:发布上传源文件；0:头像之类的图片文件
         })
-        postRequest("http://111.229.251.110:8088/update", data)
+        postRequest("/update", data)
 
       };
 
     const props = {
         name: "file",
-        action: "http://localhost:8088/upload",
+        action: "http://192.168.40.138:8088/upload",
         headers: {
             authorization: "authorization-text",
         },
@@ -97,8 +103,9 @@ function Release() {
     const tailLayout = {
         wrapperCol: { offset: 8, span: 16 },
     };
-    //请求当前系统上存在的最新版本号
-    useEffect(() => { getRelease("http://111.229.251.110:8088/release") }, [])
+
+
+  
     //表单验证
     const validateMessages = {
         required: '${label} is required!',
@@ -113,7 +120,7 @@ function Release() {
     return (
         <Card style={{padding: "10px",width: 1000,}}>
             <>
-                <Form validateMessages={validateMessages} onFinish={onFinish}>
+                <Form validateMessages={validateMessages} onFinish={onFinish} onReset={onReset}>
                     <Form.Item label='已有版本:'>
                         <Input disabled value={version}></Input>
                     </Form.Item>
@@ -149,7 +156,7 @@ function Release() {
                         <Button type='primary' htmlType='submit'>
                             发布
                         </Button>
-                        <Button htmlType='button' >
+                        <Button htmlType='button'>
                             取消
                         </Button>
                     </Form.Item>

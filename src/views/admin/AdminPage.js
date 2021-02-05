@@ -1,7 +1,7 @@
 import React from "react";
 // import Frame from "./Frame/Index"
 // import NavLine from "./Nav/NavLine";
-import adminbg from "../assert/img/bp.png";
+import adminbg from "../../assert/img/bp.png";
 
 import { Card, Avatar } from "antd";
 import {

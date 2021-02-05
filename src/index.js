@@ -1,4 +1,4 @@
-import { React, useEffect, useState, useRef } from "react";
+import { React, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
@@ -10,7 +10,7 @@ import {
     Redirect,
 } from "react-router-dom";
 import { mainRoutes, adminRoutes } from "./routes";
-import { admin_nav_config } from "./components/config/adminpage_config";
+import { admin_nav_config } from "./views/admin/config/adminpage_config";
 import { homepage_nav_config } from "./views/config/homepage_config";
 import "antd/dist/antd.css";
 
@@ -25,7 +25,7 @@ function LoginStatusManage() {
     useEffect(() => {
         //检查登录态
         // verifyLogin();
-        let loginStatus =false;
+        let loginStatus =true;
         //设置当前登录态
         setLogin(loginStatus);
     }, []);

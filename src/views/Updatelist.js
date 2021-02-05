@@ -1,8 +1,8 @@
-import { Card, Descriptions, Divider, version } from "antd";
+import { Card } from "antd";
 import { getRequest } from "../utils/request";
 import React from 'react';
-import { ConsoleSqlOutlined } from "@ant-design/icons";
-import download from "../assert/img/download.png";
+// import { ConsoleSqlOutlined } from "@ant-design/icons";
+// import download from "../assert/img/download.png";
 import { Input } from 'antd';
 import { Drawer, Button } from 'antd';
 
@@ -10,7 +10,9 @@ class ShowUpdateComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: false
+      visible: false,
+      hid: true,
+      hidCount: 0,
     }
   }
   showDrawer = () => {
@@ -19,6 +21,13 @@ class ShowUpdateComponent extends React.Component {
     });
   };
 
+  showMd5 = () => {
+    this.setState({
+      hidCount: this.state.hidCount + 1,
+      hid: this.state.hidCount % 2 === 0 ? false : true,
+    })
+  }
+
   onClose = () => {
     this.setState({
       visible: false,
@@ -26,56 +35,60 @@ class ShowUpdateComponent extends React.Component {
   };
 
   render() {
-    const { TextArea } = Input;
     return (
       <>
-        <div style={{
-          "font-size": "20px",
-          "letter-spacing": 0,
-          "margin-right": "0px",
-          "margin-bottom": "0px",
-          "margin-left": "0px",
-          "position": "relative"
+        <div className="site-drawer-render-in-current-wrapper" disable="inline-block" style={{
+          "position": "relative",
+          "height": "200px",
+          "padding": " 48px",
+          "overflow": "hidden",
+          "text-align": "center",
+          "background": "#fafafa",
+          "border": " 1px solid #ebedf0",
+          "border-radius": "2px",
         }}>
-          {this.props.version} | {this.props.createTime} | {this.props.fileSize}MB |md5:{this.props.md5}
-        </div>
-        <div className="site-drawer-render-in-current-wrapper">
-          <div style={{ marginTop: 16 }}>
-            <Button type="primary" onClick={this.showDrawer}>
-              版本特性
+
+          <div style={{
+            "margin-top": "30px",
+          }}>
+
+            <span disable="inline-block" style={{
+              "font-size": "20px",
+              "letter-spacing": 0,
+              // "margin-right": "0px",
+              "margin-left": "-100px",
+              "position": "relative",
+              "font-family": "PingFangSC-Regular, Microsoft Yahei, Tahoma,sans-serif"
+            }}>
+              {this.props.version} | {this.props.createTime} | {this.props.fileSize}MB |
+          <span onClick={this.showMd5}
+                style={{
+                  "font-weight": "bold"
+                }}
+              > md5
+          </span>
+              <Button type="primary" style={{ marginLeft: "10px" }} disable="inline-block">
+                <a href={this.props.fileUrl}>下载</a>
+              </Button>
+              <Button type="primary" onClick={this.showDrawer} style={{ marginLeft: "10px" }} disable="inline-block">
+                版本特性
           </Button>
-          <Button type="primary" >
-            <a href={this.props.fileUrl}>下载</a>
-              
-          </Button>
+              <h3 hidden={this.state.hid} style={{ marginRight: "190px",marginTop:"10px" ,"color":"#747d8c"}} >{this.props.md5}</h3>
+            </span>
           </div>
+
           <Drawer
             placement="right"
             closable={false}
             onClose={this.onClose}
             visible={this.state.visible}
+            getContainer={false}
             style={{ position: 'absolute' }}
           >
             {this.props.content}
-        </Drawer>
+          </Drawer>
         </div>
-        {/* <div className="pop" style={{display:"block"}}>
-          <h5 className="pop_title">ffffff</h5>
-          <p className="popcontent_item">
-            content......
-          </p>
-          <div className="icon_close"></div>
-        </div> */}
-
-
-
-
-
-
-
-
-
-        <Divider> </Divider>
+        {/* <Divider> </Divider> */}
       </>
     )
   }
@@ -89,8 +102,12 @@ class Updatelist extends React.Component {
       data: {}
     }
   }
-  componentWillMount() {
-    getRequest("http://111.229.251.110:8088/getUpdateHistory", this.receiveData)
+  // componentWillMount() {
+  //   getRequest("/getUpdateHistory", this.receiveData)
+  // }
+
+  componentDidMount() {
+    getRequest("/getUpdateHistory", this.receiveData)
   }
   receiveData = (data) => {
     this.setState({
@@ -98,15 +115,16 @@ class Updatelist extends React.Component {
     });
 
     const loopGetData = data;
+
     let compsbox = [];
     for (let k in loopGetData.data) {
-
-      // let createTime
+      //时间切割
+      let createTime = loopGetData.data[k].CreateTime.slice(0, 10)
       compsbox.push(
         <ShowUpdateComponent
           version={loopGetData.data[k].Version}
           fileSize={loopGetData.data[k].Size}
-          createTime={loopGetData.data[k].CreateTiem}
+          createTime={createTime}
           md5={loopGetData.data[k].Md5}
           fileUrl={loopGetData.data[k].Url}
           content={loopGetData.data[k].Content} />
