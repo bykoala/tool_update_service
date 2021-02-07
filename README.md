@@ -69,4 +69,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-写在最后面：对应后端代码https://github.com/bykoala/update_service.git   分支integration
+写在最后面：对应后端代码https://github.com/bykoala/update_service.git   分支first_backEnd_gin
