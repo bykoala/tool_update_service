@@ -1,3 +1,10 @@
+写在最前面：更新服务的前端代码。
+前端分支命名前缀与后端分支命名前缀一致。
+如：第一期需求完成。前端分支命名为first_front_react_antd，其前缀为first。
+那么对应后端https://github.com/bykoala/tools_update_service_backEnd.git的也是为first开头的first_backEnd_gin分支代码。
+后面同一项目，不同时期的需求，前后端代码皆如此。
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -69,4 +76,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-写在最后面：对应后端代码https://github.com/bykoala/update_service.git   分支first_backEnd_gin
+
