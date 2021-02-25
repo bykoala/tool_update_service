@@ -1,0 +1,225 @@
+
+import React from 'react'
+import "../static/css/feedbackOrBug.css"
+import FeedbackOrBugPNG from "../assert/img/FeedbackOrBug_banner.png"
+import home from '../assert/img/home.png'
+
+
+
+function FeedbackOrBug() {
+   
+    return (
+
+        <div id="root-container">
+            <div className="product_home">
+                <div className="header">
+                    <div className="header-main container">
+                        <a className="header_logo" href="/">
+                            <span className="logo">
+                                <img className="avatar-img" src={home} 
+                                style={{ 
+                                    border: "1px solid rgba(0, 0, 0, 0.05)"}}></img>
+                            </span>
+                            <span className="text">魔百和</span>
+                        </a>
+                        {/* <div className="header_enter">
+                            <span className="user_login">登录</span>
+                        </div> */}
+                        <div className="header_nav">
+                            <div className="nav_menu">
+                                <a className="active" href="/products/35228/">首页</a>
+                                <a className="active" href="/products/35228/faqs-more/">常见问题</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="banner" 
+                    style={{
+                        "background-color": "#ffffff",
+                        backgroundImage: `url(${FeedbackOrBugPNG})` 
+                        // "background-image": url(FeedbackOrBugPNG)
+                        }}>
+                             {/* <img src={FeedbackOrBugPNG} alt="logo"></img> */}
+                </div>
+                <div className="layerContainer clearfix">
+                    <div className="main">
+                        <div className="com_problem">
+                            <div className="classify_body">
+                                <div className="title_tab">
+                                    <div className="title_list">
+                                        <ul style={{left: 24}}>
+                                            <li className="li-active">常见问题</li>
+                                            <div className="is-active"></div></ul></div>
+                                </div>
+                                <div className="classify_content">
+                                    <div className="pc_home_pro_list pro_list">
+                                        <ul><li className="item"><a target="_blank" href="/products/35228/faqs/44936">
+                                            <span className="item_font">如何上传日志？</span></a></li><li className="item">
+                                                <a target="_blank" href="/products/35228/faqs/46698"><span className="item_font">4.2版本正式版已发布，点我看完整版更新日志</span>
+                                                    <svg className="tcIcon tcIcon_hot tcIcon_faq_hot" viewBox="0 0 10 13" xmlns="http://www.w3.org/2000/svg"><path d="M3.658 0c.039.32.018.646-.028.964a5.32 5.32 0 01-.837 2.099A7.374 7.374 0 011.49 4.536a3.97 3.97 0 00-.798.92 4.403 4.403 0 00-.633 1.68 5.004 5.004 0 00.054 1.822c.315 1.488 1.267 2.809 2.54 3.539.21.118.425.233.652.312-.103-.413-.24-.817-.325-1.236-.115-.54-.18-1.102-.099-1.653.06-.41.216-.81.48-1.123.038-.042.07-.094.122-.12.126.61.277 1.218.51 1.793.268.671.644 1.305 1.154 1.803.305.3.66.543 1.038.727.176-.076.342-.177.506-.277a9.114 9.114 0 001.07-.78c.58-.493 1.11-1.061 1.517-1.722.429-.692.708-1.5.72-2.332.022-.869-.243-1.722-.65-2.47-.389-.713-.896-1.347-1.45-1.923-.03-.033-.06-.067-.099-.087-.025.123-.035.248-.05.373-.06.56-.133 1.123-.281 1.666-.102.36-.23.724-.46 1.017-.156.202-.39.348-.643.345.167-1.136.196-2.31-.051-3.436-.18-.817-.524-1.607-1.065-2.23A4.304 4.304 0 003.658 0z" fill="#EF5656" fill-rule="nonzero"></path></svg></a></li><li className="item"><a target="_blank" href="/products/35228/faqs/47035"><span className="item_font">播放中会锁屏/休眠怎么办？</span><svg className="tcIcon tcIcon_hot tcIcon_faq_hot" viewBox="0 0 10 13" xmlns="http://www.w3.org/2000/svg"><path d="M3.658 0c.039.32.018.646-.028.964a5.32 5.32 0 01-.837 2.099A7.374 7.374 0 011.49 4.536a3.97 3.97 0 00-.798.92 4.403 4.403 0 00-.633 1.68 5.004 5.004 0 00.054 1.822c.315 1.488 1.267 2.809 2.54 3.539.21.118.425.233.652.312-.103-.413-.24-.817-.325-1.236-.115-.54-.18-1.102-.099-1.653.06-.41.216-.81.48-1.123.038-.042.07-.094.122-.12.126.61.277 1.218.51 1.793.268.671.644 1.305 1.154 1.803.305.3.66.543 1.038.727.176-.076.342-.177.506-.277a9.114 9.114 0 001.07-.78c.58-.493 1.11-1.061 1.517-1.722.429-.692.708-1.5.72-2.332.022-.869-.243-1.722-.65-2.47-.389-.713-.896-1.347-1.45-1.923-.03-.033-.06-.067-.099-.087-.025.123-.035.248-.05.373-.06.56-.133 1.123-.281 1.666-.102.36-.23.724-.46 1.017-.156.202-.39.348-.643.345.167-1.136.196-2.31-.051-3.436-.18-.817-.524-1.607-1.065-2.23A4.304 4.304 0 003.658 0z" fill="#EF5656" fill-rule="nonzero"></path>
+                                                    </svg>
+                                                    </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="post_list_label">
+                            <div className="label_list">
+                                <div className="label_list__item native">
+                                    <a className="label_list__link" href="#label=default">默认</a>
+                                </div>
+                                <div className="label_list__item"><a className="label_list__link" href="#label=show">最新</a></div>
+                                <div className="label_list__item"><a className="label_list__link" href="#label=good">好问题</a></div>
+                            </div>
+                        </div>
+                        <div className="main_post">
+                            <div className="post_item_pc hide_aType">
+
+                                <div className="item_inner">
+                                    <a href="/products/35228/profile/8994/" target="_blank" className="user_avatar">
+                                        <img className="avatar-img" src="http://thirdqq.qlogo.cn/qqapp/101506971/02195E7AC5CB3F2DC0463FA9E133AD6A/100"
+                                            style={{ border: "1px solid rgba(0, 0, 0, 0.05)" }}></img>
+
+                                    </a>
+                                    <div className="item_content">
+                                        <div className="user_info">
+                                            <a href="/products/35228/profile/8994/" target="_blank" className="user_name admin">QQ影音
+                                                </a>
+                                            <div className="public_time">
+                                                <h1>2019年5月13日 21:11</h1>
+                                            </div>
+                                            <div className="type_label">
+                                                <span className="post-label__span">置顶</span>
+                                                <span className="post-label__span">公告</span>
+                                            </div>
+                                        </div>
+                                        <div className="desc_para">
+                                            <h1>v 4.2.1.810 新特性</h1>
+                                            <p>【更新方式】在客户端内点击“在线升级”</p>
+                                            <p>01、优化trueHD格式的播放卡顿</p>
+                                            <p>02、支持同wifi下与手机共享视频</p>
+                                            <p>03、支持画面尺寸的调节</p>
+
+                                        </div>
+
+                                        <div className="post_operations">
+                                            <div className="btns_style_pc">
+                                                <div className="hover_show">
+                                                    <div className="btn btn-more">
+                                                        <h1>..........1...........</h1>
+                                                    </div>
+                                                    <div style={{display: "none"}}>
+                                                        <div className="btn btn-reward">
+                                                            <svg className="tcIcon tcIcon_reward" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M38 10c15.464 0 28 12.536 28 28S53.464 66 38 66 10 53.464 10 38s12.536-28 28-28zm0 4c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-5.828 10v.312L34.668 28h1.46v2.156L37.376 32h1.248l1.46-2.156V28h1.248l2.712-4H48v4h-2.708l-1.248 1.844V32H48v4h-7.916v4H48v4h-7.916v8h-3.96v-8h-7.912v-4h7.916v-4h-7.92v-4h3.96v-1.844L30.708 28h-2.496v-3.688L28 24h4.172z">
+                                                                </path>
+                                                            </svg>
+                                                            <b className="btn-text">赞赏</b><div className="wx_reward">微信发帖才能被赞赏</div>
+                                                        </div>
+
+                                                        <a className="btn btn-details" target="_blank" href="https://support.qq.com/products/35228/post/155775310569225119/">
+                                                            <b className="btn-text">详情</b>
+                                                        </a>
+                                                    </div>
+
+                                                </div>
+                                                <div className="btn btn-like">
+                                                    <h1>..........1...........</h1>
+                                                    <span className="btn-text">8</span>
+
+                                                </div>
+                                                <div className="btn btn-comment disabled">
+                                                    <span className="btn-text">已关闭评论</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="comment_outline">
+                                            <div className="comment_module">
+                                                <div className="comment_list" style={{display: "none"}}>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                
+                
+                <div class="side">
+                    <div class="side_info">
+                        <button class="post_button">说两句</button>
+                        </div>
+                    <div class="team_blog">
+                        <div class="topic">
+                            <h3 class="title">团队博客</h3>
+                        </div>
+                        <div class="story"><a href="/products/35228/team/" target="_blank">
+                            <img src="//txc.gtimg.com/static/our_story.bf124904.jpg" alt="我们的故事"></img>
+                            
+                            </a>
+                        </div>
+                        <ul class="blog_list"></ul>
+                    </div>
+                    <div class="power_by">
+                        <svg class="tcIcon tcIcon_logo" fill="#3269ff" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M62.228 5.99l-.241.263C53.056 15.958 39 29.829 37.679 29.829c-1.573 0-1.904.595-3.891 1.7-1.987 1.103-4.885 4.926-5.299 6.54-.276 1.077-1.049 2.407-2.318 3.993-.055 1.076.717 2.577 2.318 4.503 2.401 2.888 7.452 2.463 10.018 2.463 1.711 0 3.284.68 4.72 2.04l5.44 11.922 11.494.007A5.092 5.092 0 0160 63H27.19l-8.637 10.652A2 2 0 0115 72.392V20a5 5 0 015-5l30.475-.001A507.786 507.786 0 0061.43 1.396c1.083-1.482 1.236 1.45.8 4.594zm4.71 3.159c-.75 2.588-1.901 5.069-3.364 7.354A4.984 4.984 0 0165 20v38l-.001.042V43.858c-4.866-1.996-7.403-3.056-7.61-3.179l-.012-.007c-4.05-3.32-6.392-5.688-7.03-7.105-.994-2.209-5.216-3.993-5.216-3.993C54.32 27.62 62.6 19.21 65.913 9.525c1.66-4.855 1.887-7.039 1.646-7.946l.32-.362c.432-.491 1.891-1.848-.941 7.932zM36.104 35.56a2.16 2.16 0 110 4.32 2.16 2.16 0 010-4.32z">
+                            </path>
+                        </svg>Powered by <a href="http://tongzhi.wang" class="link" target="_blank">苏宝伢</a>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                </div>
+            </div>
+        </div>
+
+    )
+}
+
+export default FeedbackOrBug

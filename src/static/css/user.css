@@ -1,0 +1,100 @@
+/* header栏 的注册样式开始 */
+.right-user-part a{
+    color: #A9A9A9;
+    float:right;
+}
+
+.textline{
+    color: #A9A9A9;
+    margin-top: 0px;
+    margin-right: 5px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    float:right;
+}
+
+a{
+    border-top-color: initial;
+    border-top-style: none;
+    border-top-width: initial;
+    border-right-color: initial;
+    border-right-style: none;
+    border-right-width: initial;
+    border-bottom-color: initial;
+    border-bottom-style: none;
+    border-bottom-width: initial;
+    border-left-color: initial;
+    border-left-style: none;
+    border-left-width: initial;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    transition-property: color;
+    transition-duration: 0.1s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+
+    outline-color: initial;
+    outline-style: none;
+    outline-width: initial;
+    cursor: pointer;
+}
+/* header栏 的注册样式结束 */
+
+/* 注册页面的样式开始 */
+
+ol, ul {
+    list-style: none;
+    list-style-position: initial;
+    list-style-image: initial;
+    list-style-type: none;
+}
+
+#wizard {border:5px solid #789;font-size:12px;height:400px;margin:20px auto;width:540px;overflow:hidden;position:relative;-moz-border-radius:5px;-webkit-border-radius:5px;}
+#wizard .items{width:20000px; clear:both; position:absolute;}
+#wizard .right{float:right;}
+#wizard #status{height:35px;background:#123;padding-left:25px !important;}
+#status li{float:left;color:#fff;padding:10px 30px;}
+#status li.active{background-color:#369;font-weight:normal;}
+.input{width:240px; height:18px; margin:10px auto; line-height:20px; border:1px solid #d3d3d3; padding:2px}
+.page{padding:20px 30px;width:500px;float:left;}
+.page h3{height:42px; font-size:16px; 
+    border-bottom:1px dotted #ccc; 
+    margin-bottom:20px; 
+    padding-bottom:55px}
+.page h3 em{font-size:12px; font-weight:500; font-style:normal}
+.page p{line-height:24px;}
+.page p label{font-size:14px; display:block;}
+.btn_nav{height:36px; line-height:36px; margin:20px auto;}
+.prev,.next{width:100px; height:32px; line-height:32px; background:white repeat-x bottom; border:1px solid #d3d3d3; cursor:pointer}
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, pre, a, code, em, img, small, strong, sub, sup, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+input[type="button" i] {
+    appearance: auto;
+    user-select: none;
+    white-space: pre;
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    color: -internal-light-dark(black, white);
+    background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
+    box-sizing: border-box;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+
+/* 注册页面的样式结束 */
